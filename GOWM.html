@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOWM?</title>
+    <style>
+        #no{
+            position: absolute;
+            transition: ease-in 0.4s;
+        }
+        .after{
+            display: none;
+        }
+        body{
+            background-color: rgb(246, 82, 115);
+            color: white;
+            text-align: center;
+            transition: ease 0.3s;
+        }
+        button{
+            height: 35px;
+            width: 80px;
+            color: white;
+            background-color: crimson;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-right: 70px;
+            margin-top: 40px;
+            box-shadow: 0px 0px 6px 4px rgb(183, 16, 50);
+        }
+    </style>
+</head>
+<body>
+    <h1>Do you want to go out with me?</h1>
+    <img id="before" src="https://media.tenor.com/J6xumGwaxh8AAAAi/flowers-flower.gif" alt="">
+
+    <div class="after">
+        <img src="https://gifdb.com/images/high/animated-goma-cat-sending-hearts-sticker-8jfo8qxcttokeye4.gif" alt="">
+    </div>
+    <div class="btns">
+        <button id="yes">Yes</button>
+        <button id="no">No</button>
+    </div>
+    <script>
+
+        const yesButton = document.querySelector('#yes')
+        const noButton = document.querySelector('#no')
+        const after = document.querySelector('.after')
+        const before = document.querySelector('#before')
+        const h1= document.querySelector('h1')
+
+        yesButton.addEventListener('click',function(){
+            after.style.display = 'inline'  
+            h1.textContent = 'Yaaaaaaaaaay! Thanks for giving me a chance you wont regret this!' 
+            before.style.display = 'none'
+            yesButton.style.display = 'none'
+            noButton.style.display = 'none'
+        })
+
+        noButton.addEventListener('mouseover', moveButton)
+
+        function moveButton() {
+            var x = Math.random() * (window.innerWidth - document.getElementById('no').offsetWidth);
+            var y = Math.random() * (window.innerHeight - document.getElementById('no').offsetHeight);
+            document.getElementById('no').style.left = `${x}px`;
+            document.getElementById('no').style.top = `${y}px`;
+        }
+    </script>
+</body>
+</html>
